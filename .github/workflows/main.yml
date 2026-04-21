@@ -1,4 +1,4 @@
-name: Generate APK Latest
+name: Generate APK Fixed
 on: [push]
 
 jobs:
@@ -13,17 +13,30 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
+          # Cache hata diya hai taaki file na milne par error na aaye
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: |
+          if [ -f "gradlew" ]; then
+            chmod +x gradlew
+          elif [ -f "android/gradlew" ]; then
+            chmod +x android/gradlew
+          fi
 
       - name: Build APK with Gradle
-        run: ./gradlew assembleDebug
+        run: |
+          if [ -f "gradlew" ]; then
+            ./gradlew assembleDebug
+          elif [ -f "android/gradlew" ]; then
+            cd android && ./gradlew assembleDebug
+          else
+            echo "Error: Gradle file nahi mili. Kya aapka project Android hai?"
+            exit 1
+          fi
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-app-bundle
-          path: app/build/outputs/apk/debug/*.apk
+          name: my-app-apk
+          path: "**/*.apk" # Yeh saari APK files dhoond lega
           
