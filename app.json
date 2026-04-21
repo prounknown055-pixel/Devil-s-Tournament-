@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "BattleZone",
+    "slug": "battlezone-tournaments",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#080810"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.battlezone.tournaments"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#080810"
+      },
+      "package": "com.battlezone.tournaments",
+      "permissions": ["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"]
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        { "photosPermission": "Allow BattleZone to access your photos for uploading QR codes and screenshots." }
+      ]
+    ]
+  }
+}
