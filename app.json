@@ -22,13 +22,23 @@
         "backgroundColor": "#080810"
       },
       "package": "com.battlezone.tournaments",
-      "permissions": ["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"]
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "plugins": [
       [
         "expo-image-picker",
-        { "photosPermission": "Allow BattleZone to access your photos for uploading QR codes and screenshots." }
+        {
+          "photosPermission": "Allow BattleZone to access your photos for uploading QR codes and screenshots."
+        }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "YAHAN_EAS_INIT_KE_BAAD_ID_AAYEGI"
+      }
+    }
   }
 }
